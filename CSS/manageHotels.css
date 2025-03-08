@@ -1,0 +1,536 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Raleway&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+    
+}
+body {
+    
+        padding: 0;
+        margin: 0;
+        background-color: #ddefe6;
+    
+    
+}
+#sidebar {
+    font-size: 25px;
+    text-align: center;
+    width: 15%;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: white;
+    background-color: #F0F5F1;
+    position: fixed;
+    top: 15%;
+    left: 0;
+    animation: SlideRight 0.5s;
+    border: 3px solid #000000; /* Deep Teal */
+    border-radius: 8px; /* Rounded corners */
+    width: 17%;
+}
+#showAllHotels {
+    background-color: #A5D6A7;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bolder;
+    color: rgb(11, 0, 0);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border: 2px solid #000706;
+}
+#showAllHotels:hover {
+    background-color: #2C3E50;
+    color: white;
+    
+}
+#sidebar2 {
+    font-size: 25px;
+    text-align: center;
+    width: 15%;
+    padding: 0px;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    color: black;
+    background-color:  #F0F5F1;
+    font-weight: bold;
+    border-radius: 20px;
+    position: fixed;
+    right: 0px;
+    top: 20%;
+    animation: SlideLeft .5s;
+    border-radius: 20px 0px 0px 20px;
+}
+#addNewHotelBar {
+    background-color: #F0F5F1;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+}
+#opensidebar2 {
+    background-color:  #F0F5F1;
+    padding: 20px;
+    width: 200px;
+    position: fixed;
+    right: 20px;
+    top: 40%;
+    color: black;
+    font-size: 20px;
+    border-radius: 60px 0px 0px 60px;
+    animation: SlideLeft .5s;
+    border: 2px solid #000706;
+    font-weight: bold;
+}
+#closeSideBar2{
+    background-color: #A5D6A7;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bolder;
+    color: rgb(11, 0, 0);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border: 2px solid #000706;
+}
+#adminLogOut {
+    width: 5%;
+    padding: 15px;
+    background-color: rgb(80, 16, 152);
+    position: absolute;
+    right: 0;
+    top: 10px;
+    border-radius: 50px 0 0 50px;
+    transition: width 1s;
+    border: 2px solid #000706;
+    color: white;
+    font-weight: bold;
+}
+#adminLogOut:hover {
+    width: 7%;
+    padding: 15px;
+    transition: width .5s;
+    background-color: rgb(175, 229, 14);
+    color: black;
+}
+#SearchHotels{
+    background-color: #BFD7ED;
+    color: black;
+    border: 2px solid #000706;
+}
+#sortBy{
+    background-color: #BFD7ED;
+    color: black;
+    border: 2px solid #000706;
+}
+#categoryFilter{
+    background-color: #BFD7ED;
+    color: black;
+    border: 2px solid #000706;
+}
+#ratingFilter{
+    background-color: #BFD7ED;
+    color: black;
+    border: 2px solid #000706;
+}
+label {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    
+}
+#EHAddName{
+    background-color: #BFD7ED;
+    color: black;
+    border: 2px solid #000706;
+}
+#EHAddName{
+    background-color: #BFD7ED;
+    color: black;
+    border: 2px solid #000706;
+}
+#EHAddLocation{
+    background-color: #BFD7ED;
+    color: black;
+    border: 2px solid #000706;
+}
+#EHAddPrice{
+    background-color: #BFD7ED;
+    color: black;
+    border: 2px solid #000706;
+}
+#EHAddDescription{
+    background-color: #BFD7ED;
+    color: black;
+    border: 2px solid #000706;
+}
+#EHAddCategory{
+    background-color: #BFD7ED;
+    color: black;
+    border: 2px solid #000706;
+}
+#EHAddRating{
+    background-color: #BFD7ED;
+    color: black;
+    border: 2px solid #000706;
+}
+#EHAddImage{
+    background-color: #BFD7ED;
+    color: black;
+    border: 2px solid #000706;
+}
+#EHAddBtn{
+    background-color: #A5D6A7;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bolder;
+    color: rgb(11, 0, 0);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border: 2px solid #000706;
+}
+#EHAddBtn:hover {
+    background-color: #2C3E50;
+    color: white;
+    
+}
+
+#addNewHotelBar {
+    animation: SlideRight 1s;
+}
+#editHotelBar {
+    display: none;
+    animation: SlideRight 1s;
+    color: black;
+}
+#openAddNewHotel {
+    display: none;
+    animation: SlideDown 2s;
+}
+input {
+    border-radius: 5px;
+    border: 2px solid #000706;
+    padding: 10px;
+    background-color: #BFD7ED;
+    color: black;
+    font-size: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+button {
+    background-color: #A5D6A7;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bolder;
+    color: rgb(11, 0, 0);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border: 2px solid #000706;
+}
+button:hover {
+    background-color: #2C3E50;
+    color: white;
+}
+select {
+    background-color: #BFD7ED;
+    color: black;
+    border-radius: 5px;
+    border: 2px solid #000706;
+    padding: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+option {
+    background-color: rgb(219, 209, 255);
+    color: black;
+    font-size: 15px
+}
+#mainSection {
+    width: 55%;
+    margin: auto;
+    padding: 10px;
+}
+#head {
+    text-align: center;
+    color: rgb(50, 50, 93);
+    font-size: 25px;
+    border-radius: 50px;
+    border: 2px solid #000706;
+    background-color: #A5D6A7;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    padding: 0px 150px 0px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: SlideDown 1s;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    font-family: 'Gill Sans';
+    font-style:italic;
+    color: #000000;
+}
+#head>div:first-child {
+    width: 16%;
+}
+#head>div:last-child {
+    animation: SlideRight 1.5s;
+}
+#head img {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    padding: 15px;
+    animation: SlideLeft 3s;
+    border: 2px solid #000706;
+    background-color: #dde1ef;
+
+}
+#head img:hover {
+    transform: scale(1.1);
+    transition: all .5s;
+    background-color: #cf1153;
+}
+#head span {
+    background-color: #dde1ef;
+    border: 2px solid #000706;
+    color: #B80046;
+    padding: 5px;
+    border-radius: 10px;
+}
+.cardlist {
+    width: 80%;
+    margin: auto;
+    animation: transitionIn .5s;
+}
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    background-color:transparent;
+    border-radius: 15px;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 15px;
+    transition: all 0.2s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    background-color: #A7BEAE;
+    border: 2px solid #000000;
+}
+.card:hover {
+    background-color: #07d7c2;
+    transform: scale(1.03);
+    transition: all 0.1s;
+}
+.imageSection {
+    width: 30%;
+    padding: 5px;
+    border-radius: 30px 30px;
+}
+.imageSection>img {
+    width: 100%;
+    border-radius: 30px 30px;
+}
+.infoSection {
+    width: 70%;
+    ;
+}
+.infoSection div {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+.infoSection div p {
+    padding: 5px;
+    background-color: rgb(204, 187, 34);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border: 1px solid #000;
+}
+.infoSection div p:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.infoSection div p:nth-child(2) {
+    background-color: rgb(204, 187, 34);
+    border: 1px solid #000;
+}
+.infoSection div p:nth-child(3) {
+    background-color: rgb(204, 187, 34);
+    border: 1px solid #000;
+}
+.buttonSection {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.cardButton {
+    background-color: #A5D6A7;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bolder;
+    color: rgb(11, 0, 0);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.cardButton:hover{
+    background-color: #2C3E50;
+    color: white;
+}
+
+.deleteOption {
+    padding: 10px;
+    color: white;
+    background-color: rgb(134, 32, 32);
+    text-decoration: none;
+    border-radius: 10px;
+}
+.noResults {
+    width: 60%;
+    margin: auto;
+    margin-top: 100px;
+}
+.noResults>img {
+    width: 100%;
+    mix-blend-mode: color-burn;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Main Section Loader>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+@keyframes ldio-f9dd3opjeia {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+.ldio-f9dd3opjeia>div>div {
+    transform-origin: 100px 100px;
+    animation: ldio-f9dd3opjeia 3.0303030303030303s linear infinite;
+    opacity: 0.8
+}
+.ldio-f9dd3opjeia>div>div>div {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 70px;
+    height: 70px;
+    border-radius: 70px 0 0 0;
+    transform-origin: 100px 100px;
+}
+.ldio-f9dd3opjeia>div div:nth-child(1) {
+    animation-duration: 0.7575757575757576s
+}
+.ldio-f9dd3opjeia>div div:nth-child(1)>div {
+    background: #e15b64;
+    transform: rotate(0deg);
+}
+.ldio-f9dd3opjeia>div div:nth-child(2) {
+    animation-duration: 1.0101010101010102s
+}
+.ldio-f9dd3opjeia>div div:nth-child(2)>div {
+    background: #f47e60;
+    transform: rotate(0deg);
+}
+.ldio-f9dd3opjeia>div div:nth-child(3) {
+    animation-duration: 1.5151515151515151s
+}
+.ldio-f9dd3opjeia>div div:nth-child(3)>div {
+    background: #f8b26a;
+    transform: rotate(0deg);
+}
+.ldio-f9dd3opjeia>div div:nth-child(4) {
+    animation-duration: 3.0303030303030303s
+}
+.ldio-f9dd3opjeia>div div:nth-child(4)>div {
+    background: #abbd81;
+    transform: rotate(0deg);
+}
+.loadingio-spinner-wedges-b26wzcixxz {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    margin-top: 100px;
+    overflow: hidden;
+    background: transparent;
+}
+.ldio-f9dd3opjeia {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0;
+    /* see note above */
+}
+.ldio-f9dd3opjeia div {
+    box-sizing: content-box;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Main Section Loader End>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+/*  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CSS For loader >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/*  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CSS For loader END>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+/* ------------------Animations-------------------- */
+@keyframes SlideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes SlideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes SlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes SlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes transitionIn {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}
