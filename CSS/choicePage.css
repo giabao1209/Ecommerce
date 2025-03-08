@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Raleway&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Gill Sans';
+}
+
+body {
+    animation: transitionIn 5s;
+    padding: 0;
+    margin: 0;
+    background-color: #DDEFE3;
+}
+
+#greeting {
+    color: #51552b;
+    text-align: center;
+    margin-top: 200px;
+    font-size: 40px;
+    animation: SlideDown 1s;
+    font-weight: bold;
+    font-family: 'Gill Sans';
+    font-style:italic;
+}
+#greetFor {
+    color: #51552b;
+    text-align: center;
+    margin-top: 200px;
+    font-size: 40px;
+    animation: SlideDown 1s;
+    font-weight: bold;
+    font-family: 'Gill Sans';
+    font-style:italic;
+}
+
+#logOutButton {
+    width: 5%;
+    padding: 15px;
+    background-color: #3A6351;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    color: white;
+    border-radius: 50px 0 0 50px;
+    transition: all 1s;
+    
+}
+
+#logOutButton:hover {
+    width: 7%;
+    padding: 15px;
+    background-color: #C84B31;
+    transition: all .5s;
+}
+
+#manageField {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5%;
+    animation: SlideUp 1s;
+}
+
+#manageField>a {
+    text-decoration: none;
+}
+
+.chooseToEdit {
+    background-color: #A7BEAE;
+    height: 250px;
+    width: 250px;
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: all ease-out .1s;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+}
+
+.chooseToEdit:hover {
+    transform: scale(1.1);
+}
+
+.chooseToEdit:active {
+    transform: scale(0.80);
+    transition: all 0.1s;
+}
+
+.chooseToEdit>span {
+    color: #2B3A55;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Gill Sans';
+    font-style:italic;
+}
+
+.chooseToEdit img {
+    width: 80%;
+}
+
+@keyframes SlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes SlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+    to {
+        opacity: 1;
+    }
+}

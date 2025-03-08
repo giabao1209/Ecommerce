@@ -1,0 +1,392 @@
+    @import url(https://fonts.googleapis.com/css?family=Montserrat:400,800%27);
+
+    *{
+        box-sizing: border-box;
+        font-family: 'monserrat', sans-serif;
+    }
+    body{
+        margin: 0px;
+        padding: 0px;
+        background-color: rgb(166, 141, 255) ;
+    }
+    #logOutButton {
+        width: 5%;
+    padding: 15px;
+    background-color: rgb(80, 16, 152);
+    position: absolute;
+    right: 0;
+    top: 10px;
+    border-radius: 50px 0 0 50px;
+    transition: width 1s;
+    border: 2px solid #000706;
+    color: white;
+    font-weight: bold;
+    }
+    #logOutButton:hover{
+        width: 7%;
+        padding: 15px;
+        transition: width .5s;
+        background-color: rgb(175, 229, 14);
+        color: black;
+    }
+    header {
+        background-color: #A5D6A7;
+        color: 51552b;
+        padding-bottom: 15px;
+        text-align: center;
+        border-bottom: 2px solid #000706;
+    }
+    .searchContainer {
+        border-bottom: 2px solid #000; /* Adjust thickness and color */
+        margin-bottom: 0;
+        padding-bottom: 0;
+        background-color: #A5D6A7;
+        
+    }
+    
+    .searchContainer_tagLine {
+        text-align: center;
+    margin-top: 0px;
+    padding-top: 20px;
+    font-weight: bold;
+    font-family: 'Gill Sans';
+    font-style:italic;
+    color: #000000;
+    
+    
+    }
+
+    .searchContainer_widget{
+        width: 70%;
+        margin: auto;
+        display: flex;
+        padding: 10px;
+        gap: 20px;
+        position: sticky;
+        top: 0;
+    }
+    
+    .searchContainer_div{
+        width: 70%;
+        display: flex;
+        align-items: center;
+        
+    }
+    .searchContainer_div>input {
+        width: 100%;
+        font-size: 20px;
+        border: none;
+        padding: 15px;
+        border-radius: 20px;
+    }
+    .searchContainer_data{
+        background-color: #2C3E50;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        font-family: 'Gill Sans';
+        border-radius: 20px;
+    }
+    .searchContainer_data input {
+        font-size: 20px;
+        border: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+    .searchContainer_buttondiv{
+        display: flex;
+        align-items: center;
+    }
+    .searchContainer_buttondiv>button{
+        background-color: #2C3E50;
+    color: white;
+    font-size: 20px;
+    border: 3px solid #000000;
+    padding: 10px 12px;
+    border-radius: 20px;
+    }
+
+
+    .recentSearch{
+        display: none;
+    }
+    /* -------------------------------------------body Container------------------------------------- */
+
+    .body_container{
+        margin: auto;
+        display: flex;
+        height: 1000px;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        background-color: #ddefe6;
+    }
+    ::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        background-color: transparent;
+    }
+
+    /* -------------------------------------------filter Section------------------------------------- */
+    aside{
+        background-color: rgb(74, 50, 161);
+        width: 17%;
+        position: absolute;
+        left: 0;
+        font-size: 15px;
+        color: white;
+        padding: 15px;
+    }
+    aside>div>div{
+        background-color: rgb(121, 84, 255);
+        border-bottom: 4px solid rgb(92, 68, 180);
+        padding: 10px;
+    }
+    input[type="checkbox"]{
+        margin-left: 50px;
+    }
+
+    .sort_div{
+        
+        display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #BFD7ED;
+    color: #1E1E3F;
+    border: 3px solid #000000; /* Deep Teal */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Space inside the border */
+    margin: 10px; /* Space outside the border */
+    width: auto; /* Ensure they do not stretch too wide */
+    text-align: left;
+    }
+    .sort_div select{
+        background-color: #2C3E50;
+    color: white;
+        font-weight: bold;
+    border: 3px solid #000000;
+    padding: 10px 12px;
+    border-radius: 20px;
+    }
+    .filter_sidebar{
+        background: #F0F5F1;
+        color: #1E1E3F;
+        font-weight: bold;
+        border: 3px solid #000000; /* Deep Teal */
+        border-radius: 8px; /* Rounded corners */
+        padding: 10px; /* Space inside the border */
+        margin: 10px; /* Space outside the border */
+        text-align: center; /* Centers the text */
+    }
+    .filter_price{
+        display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #BFD7ED;
+    color: #1E1E3F;
+    border: 3px solid #000000; /* Deep Teal */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Space inside the border */
+    margin: 10px; /* Space outside the border */
+    width: auto; /* Ensure they do not stretch too wide */
+    text-align: left;
+    }
+    .filter_accomodation{
+        display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #BFD7ED;
+    color: #1E1E3F;
+    border: 3px solid #000000; /* Deep Teal */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Space inside the border */
+    margin: 10px; /* Space outside the border */
+    width: auto; /* Ensure they do not stretch too wide */
+    text-align: left;
+    }
+
+    .filter_category{
+        display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #BFD7ED;
+    color: #1E1E3F;
+    border: 3px solid #000000; /* Deep Teal */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Space inside the border */
+    margin: 10px; /* Space outside the border */
+    width: auto; /* Ensure they do not stretch too wide */
+    text-align: left;
+    }
+
+    .filter_rating{
+        display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #BFD7ED;
+    color: #1E1E3F;
+    border: 3px solid #000000; /* Deep Teal */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Space inside the border */
+    margin: 10px; /* Space outside the border */
+    width: auto; /* Ensure they do not stretch too wide */
+    text-align: left;
+    }
+    #data_container{
+        width: 60%;
+        margin-left: 21%;
+    }
+    .card-list{
+        padding: 10px;
+    }
+    .card{
+    
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    background-color:transparent;
+    border-radius: 15px;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 15px;
+    transition: all 0.2s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    background-color: #A7BEAE;
+    border: 2px solid #000000;
+    }
+    .card:hover{
+        background-color: #07d7c2;
+    transform: scale(1.03);
+    transition: all 0.1s;
+    }
+    .card *{
+        font-size: 15px;
+    }
+    .main-card{
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .main-card-img{
+        width: 30%;
+        padding: 5px;
+    }
+    .main-card-img>img{
+        width: 100%;
+        border-radius: 20px;
+    }
+    .main-card-body {
+        padding: 5px;
+        width: 65%;
+    }
+    .card_title{
+        font-size: 25px;
+    }
+    .card_location{
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .ratingDiv{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .price{
+        font-size: 20px;
+        font-weight: bolder;
+    }
+    .card_btns{
+        margin-left: 60%;
+        display: flex;
+    justify-content: space-between; /* Push buttons to opposite ends */
+    align-items: center;
+    padding: 10px;
+    }
+    .card_btns button{
+        margin-right: 7px;
+        border-radius: 50px;
+        border: none;
+        font-size: 15px;
+        background-color: #A5D6A7;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bolder;
+    color: rgb(11, 0, 0);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+    .card_btns button:hover{
+        background-color: #2C3E50;
+        color: white;
+    }
+    
+    .view_details{
+        background-color: transparent;
+        color: rgb(65, 13, 163);
+    }
+    .book_btn{
+        padding: 15px;
+        background-color: rgb(37, 153, 37);
+        color: white;
+    }
+    .book_btn:hover {
+        background-color: rgb(22, 116, 22);
+    }
+
+    .card-details {
+        background-color:rgb(175, 229, 14); ;
+        width: 90%;
+        
+        animation: slideDown 0.5s;
+        margin: auto;
+        display: none;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 50px;
+        text-align: center;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+        border: 2px solid #000706;
+    }
+    .card_description{
+        color: rgb(114, 1, 1);
+        font-weight: bolder;
+        background-color: white;
+        border: 2px solid #023a32;
+        border-radius: 500px;   
+        padding: 10px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+    .card_description strong{
+        font-size: 15px;
+        color: black;
+        
+    }
+    .amenities{
+        display: flex;
+        justify-content: space-between;
+        font-size: 25px;
+        font-weight: bolder;
+        color:white;
+        padding: 0 80px 0 80px;
+
+        
+    }
+    .amenities>p{
+        padding: 5px;
+        background-color: rgb(22, 116, 22);
+        border-radius: 5px;
+        color: white;
+        font-size: 15px;
+        border: 2px solid #000706;
+    }
+    @keyframes slideDown {
+        from{
+            opacity: 0;
+            transform: translateY(-20%);
+        }
+        to{
+            opacity: 1;
+            
+        }
+        
+    }
+
+
