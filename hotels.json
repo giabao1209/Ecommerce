@@ -1,0 +1,103 @@
+[
+    {
+      "id": "1",
+      "name": "InterContinental Hanoi Westlake",
+      "location": "Hanoi",
+      "price": 3500000,
+      "description": "Overlooking the serene West Lake, this luxurious hotel offers a relaxing retreat with top-notch amenities and impeccable service.",
+      "category": "Luxury",
+      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/5b/cd/f4/intercontinental-hanoi.jpg?w=900&h=600&s=1",
+      "rating": 5
+    },
+    {
+      "id": "2",
+      "name": "The Reverie Saigon",
+      "location": "Ho Chi Minh City",
+      "price": 6000000,
+      "description": "A luxurious hotel offering opulence and elegance with breathtaking views of the Saigon River, perfect for those who demand excellence.",
+      "category": "Luxury",
+      "image": "https://media.timeout.com/images/105797395/750/422/image.jpg",
+      "rating": 5
+    },
+    {
+      "id": "3",
+      "name": "Four Seasons Resort The Nam Hai, Hoi An",
+      "location": "Da Nang",
+      "price": 12000000,
+      "description": "Set on the pristine beaches of Da Nang, this resort offers a tranquil escape with exquisite villas and world-class facilities.",
+      "category": "Resort",
+      "image": "https://cdn.fourseasons.com/ftcom/fsi/regions/asia-pacific/vietnam/hotels/da-nang/four-seasons-resort-da-nang.jpg",
+      "rating": 5
+    },
+    {
+      "id": "4",
+      "name": "Sofitel Legend Metropole Hanoi",
+      "location": "Hanoi",
+      "price": 5000000,
+      "description": "A historic hotel offering a blend of colonial charm and modern luxury, right in the heart of Hanoi, perfect for cultural explorers.",
+      "category": "Luxury",
+      "image": "https://www.sofitel-legends.com/hanoi/sofitel-metropole-hanoi.jpg",
+      "rating": 5
+    },
+    {
+      "id": "5",
+      "name": "Park Hyatt Saigon",
+      "location": "Ho Chi Minh City",
+      "price": 4500000,
+      "description": "A stunning blend of traditional Vietnamese style and modern elegance, located in the heart of Saigon, offering luxury and convenience.",
+      "category": "Luxury",
+      "image": "https://www.hyatt.com/content/dam/hyatt/hyattdotcom/en/images/brand/hyatt/brands/park-hyatt/park-hyatt-saigon-hotel-hero.jpg",
+      "rating": 5
+    },
+    {
+      "id": "6",
+      "name": "Novotel Danang Premier Han River",
+      "location": "Da Nang",
+      "price": 2000000,
+      "description": "Located near the Han River, this hotel offers contemporary rooms and excellent amenities with views of the river and the city skyline.",
+      "category": "Business",
+      "image": "https://accor.scene7.com/is/image/accor/Novotel-Danang-Premier-Han-River-Exterior.jpg",
+      "rating": 4
+    },
+    {
+      "id": "7",
+      "name": "Lotte Hotel Hanoi",
+      "location": "Hanoi",
+      "price": 3000000,
+      "description": "A sophisticated hotel offering top-tier amenities, located in the city center, with spectacular views of Hanoi's skyline and West Lake.",
+      "category": "Luxury",
+      "image": "https://www.lottehotel.com/hanoi/hotel/images/mainbanner.jpg",
+      "rating": 5
+    },
+    {
+      "id": "8",
+      "name": "Fusion Suites Saigon",
+      "location": "Ho Chi Minh City",
+      "price": 2800000,
+      "description": "A modern wellness hotel offering chic design and wellness-focused amenities such as yoga, spa treatments, and healthy dining.",
+      "category": "Wellness",
+      "image": "https://cdn.fusionsuites.com/hotels/saigon/fusion-suites-saigon.jpg",
+      "rating": 4
+    },
+    {
+      "id": "9",
+      "name": "Azerai La Residence, Hue",
+      "location": "Da Nang",
+      "price": 7000000,
+      "description": "A beautiful lakeside resort that blends classic French architecture with luxurious modern design, offering a tranquil escape.",
+      "category": "Resort",
+      "image": "https://azerai.com/azerai-la-residence-hue/hotel.jpg",
+      "rating": 5
+    },
+    {
+      "id": "10",
+      "name": "Sheraton Saigon Hotel & Towers",
+      "location": "Ho Chi Minh City",
+      "price": 4000000,
+      "description": "A luxurious hotel offering a central location, outstanding service, and stunning views of Saigon’s skyline, perfect for both business and leisure.",
+      "category": "Luxury",
+      "image": "https://www.marriott.com/content/dam/marriott/saigon_sheraton_hotel_hero.jpg",
+      "rating": 4
+    }
+  ]
+  
