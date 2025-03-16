@@ -42,7 +42,7 @@ let mainDiv = document.getElementById("data-list-wrapper")
 let paginationWapper = document.getElementById("pagination-wrapper")
 
 function fetchAndRenderHotels(){
-    fetch(`https://api-by-alisha-khan.onrender.com/hotels`)
+    fetch(`hotels.json`)
     .then(res =>{
         // let totalPosts = res.headers.get("X-Total-Count")
         // let totalBtn = Math.ceil(totalPosts/10)

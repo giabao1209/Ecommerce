@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Booking</title>
+    <style>body{
+        background-color:#ddefe6;
+    }
+        .search-container { padding: 20px; background-color: #A7BEAE; border-radius: 8px; max-width: 800px; margin: 20px auto; border: 2px solid #000; font-family: 'Playfair Display', serif; }
+        .search-section { display: flex; gap: 10px; margin-bottom: 15px; }
+        .city-select, .date-section input { padding: 10px; border: 1px solid #ddd; border-radius: 4px; width: 100%; }
+        .date-section { display: flex; align-items: center; gap: 10px; }
+        .results-container { margin-top: 30px; display: none; width:70%; margin-left: auto;
+            margin-right: auto;}
+        .card { flex: 1;  border-radius: 8px; padding: 15px; }
+        .nav-btn { background: none; border: 1px solid #ddd; padding: 10px; cursor: pointer; }
+        .total-section { text-align: right; margin-top: 20px; }
+        #departureCity{
+            font-family: 'Playfair Display', serif;
+            border: 2px solid #000;
+        }
+        #arrivalCity{
+            font-family: 'Playfair Display', serif;
+            border: 2px solid #000;
+        }
+        #checkinDate{
+            font-family: 'Playfair Display', serif;
+            border: 2px solid #000;
+        }
+        #checkoutDate{
+            font-family: 'Playfair Display', serif;
+            border: 2px solid #000;
+        }
+        button[type="submit"] {
+            background-color: #A5D6A7; /* Blue background */
+            color: rgb(11, 0, 0); /* White text */
+    font-size: 16px;
+    font-weight: bolder;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    transition: background 0.3s ease;
+    margin-top: 15px;
+    border: 2px solid #000;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.result-section{
+    border: 2px solid #000;
+}
+
+button[type="submit"]:hover {
+    background-color: #2C3E50;
+    color: white;
+}
+
+p{
+    font-weight: Bold;
+}
+.nav-btn{
+    background: none;
+    border: 1px solid #000;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: #A5D6A7; /* Blue background */
+    transition: background 0.3s ease;
+}
+.nav-btn:hover {
+    background: #004d00;
+    color: white;
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin: 0.83em auto; /* Căn giữa theo chiều ngang */
+    padding: 10px 20px; /* Tạo khoảng cách bên trong */
+    text-align: center; /* Căn giữa nội dung */
+    font-weight: bold;
+    color: white; /* Màu chữ trắng */
+    background-color: #004d00; /* Màu nền xanh đậm */
+    border: 2px solid black; /* Viền màu đen */
+    border-radius: 8px; /* Bo tròn viền */
+    width: fit-content; /* Giữ kích thước vừa với nội dung */
+}
+#depart{
+    border: 2px solid black;
+    margin: 10px; /* Viền màu đen */
+    background-color:#BFD7ED;
+    border-radius: 5px;
+}
+.hotel-image {
+    width: 100%; /* Makes the image responsive */
+    height: 200px; /* Adjust as needed */
+    object-fit: cover; /* Ensures the image fits properly */
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.main-card{
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.6;
+    }
+    .card_description{
+        font-size: 25px;
+        color: black;
+        
+        font-weight: bolder;
+        background-color:rgb(175, 229, 14); ;
+        border: 2px solid #023a32;
+        border-radius: 500px;   
+        padding: 10px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+    .main-card-img{
+        width: 30%;
+        padding: 5px;
+    }
+    .main-card-img>img{
+        width: 100%;
+        border-radius: 20px;
+    }
+    .main-card-body {
+        padding: 5px;
+        width: 65%;
+    }
+    .card_title{
+        font-size: 25px;
+    }
+    .card_location{
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .ratingDiv{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .price{
+        font-size: 20px;
+        font-weight: bolder;
+    }
+#return{
+    border: 2px solid black; /* Viền màu đen */
+    margin: 10px;
+    background-color:#BFD7ED;
+    border-radius: 5px;
+}
+#hotel{
+    border: 2px solid black; /* Viền màu đen */
+    margin: 10px;
+    background-color:#BFD7ED;
+    border-radius: 5px;
+}
+.card-container{
+    background-color: #F0F5F1;border-top: 2px solid black;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; /* Đẩy nút sang hai bên */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
+    width: 100%;
+    
+}
+
+.flight-card {
+    flex-grow: 0.6; /* Allows the flight card to take available space */
+    display: flex;
+    justify-content: center;
+}
+
+.flight-card .card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    background-color:transparent;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    padding: 10px;
+    font-size: 25px;
+    transition: all 0.2s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    background-color: #A7BEAE;
+    border: 2px solid #000000;
+    
+}
+.flight-card .hover{
+    background-color: #07d7c2;
+    transform: scale(1.03);
+    transition: all 0.1s;
+}
+p span {
+    color: red; /* Change text color inside <span> */
+    font-weight: normal;
+}
+.flightNum{
+    color: rgb(2, 2, 10);
+    font-weight: bold;
+    padding: 3px;
+    
+}
+.airline{
+    margin-top: 10px;
+    color: #fdfbfb;
+    font-weight: bolder;
+    padding: 5px;
+    font-size: 22px;
+    background-color: #2C3E50;
+    border-radius: 30px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.infoUpper {
+    display: flex;
+    background-color: rgb(171, 153, 255);
+    border-radius: 50px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border: 2px solid #000000;
+    background-color: #FFFFFF;
+}
+.infoUpper *{
+    padding: 5px 20px;
+
+}
+.infoLower{
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    border-radius: 50px;
+    border: 2px solid #000000;
+    background-color: #FFFFFF;
+}
+.infoLower>div{
+    border-radius: 50px;
+    padding: 1px 5px 1px 5px;
+    
+}
+.cityDiv{
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    color: #5000b8;
+}
+.midDiv{
+    text-align: center;
+}
+.midTop{
+    border-bottom: 1px solid black;
+}
+.total-section button {
+    background-color: #2C3E50; /* Dark Blue Background */
+    color: white; /* White Text */
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.total-section button:hover {
+    background-color: #bdc008; /* Darker Blue on Hover */
+    transform: scale(1.05); /* Slight Zoom Effect */
+    border: 2px solid #000000;
+    color: black;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <form id="searchForm">
+            <div class="search-section">
+                <select class="city-select" id="departureCity" required>
+                    <option value="">Departure City</option>
+                    <option value="Da Nang">Da Nang</option>
+                    <option value="Ho Chi Minh City">Ho Chi Minh City</option>
+                    <option value="Hanoi">Ha Noi</option>
+                </select>
+                <select class="city-select" id="arrivalCity" required>
+                    <option value="">Arrival City</option>
+                    <option value="Da Nang">Da Nang</option>
+                    <option value="Ho Chi Minh City">Ho Chi Minh City</option>
+                    <option value="Hanoi">Ha Noi</option>
+                </select>
+            </div>
+            <div class="date-section">
+                <input type="date" id="checkinDate" required>
+                <span>to</span>
+                <input type="date" id="checkoutDate" required>
+            </div>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <div id="resultsContainer" class="results-container"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const checkinDate = document.getElementById("checkinDate");
+    const checkoutDate = document.getElementById("checkoutDate");
+    const searchForm = document.getElementById("searchForm");
+
+    // Set the minimum date to today
+    const today = new Date().toISOString().split("T")[0];
+    checkinDate.min = today;
+    checkoutDate.min = today;
+
+    // Ensure checkout date is always after check-in date
+    checkinDate.addEventListener("change", () => {
+        checkoutDate.min = checkinDate.value; // Checkout must be after check-in
+    });
+
+    searchForm.addEventListener("submit", (e) => {
+        if (checkoutDate.value <= checkinDate.value) {
+            alert("Checkout date must be after check-in date.");
+            e.preventDefault(); // Stop form submission
+        }
+    });
+});
+
+        const searchForm = document.getElementById('searchForm');
+        const resultsContainer = document.getElementById('resultsContainer');
+        let currentHotelIndex = 0, currentFlightIndex = 0, currentReturnFlightIndex =0;
+        let allHotels = [], allFlights = [];
+
+
+        async function fetchData() {
+            try {
+                const hotelResponse = await fetch("hotels.json");
+                const flightResponse = await fetch("flights.json");
+
+                if (!hotelResponse.ok || !flightResponse.ok) {
+                    throw new Error("Failed to fetch data");
+                }
+
+                allHotels = await hotelResponse.json();
+                allFlights = await flightResponse.json();
+                console.log("Hotels:", allHotels);
+                console.log("Flights:", allFlights);
+                hotels = [...allHotels]; 
+                flights = [...allFlights]; 
+            } catch (error) {
+                console.error("Error loading data:", error);
+            }
+        }
+
+// Call fetchData when page loads
+fetchData();
+
+        
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const departureCity = document.getElementById('departureCity').value;
+            const arrivalCity = document.getElementById('arrivalCity').value;
+            const departureCity2 = document.getElementById('arrivalCity').value;
+            const arrivalCity2 = document.getElementById('departureCity').value;
+
+            // ✅ Filter the fetched data, not sample data
+            const filteredHotels = allHotels.filter(hotel => hotel.location === arrivalCity);
+            const filteredFlights = allFlights.filter(flight => flight.from_city === departureCity && flight.to_city === arrivalCity);
+            const filteredReturnFlights = allFlights.filter(flight => flight.from_city === departureCity2 && flight.to_city === arrivalCity2);
+
+            if (filteredHotels.length === 0 || filteredFlights.length === 0) {
+                alert("No results found. Please try different cities.");
+                return;
+            }
+
+            // Update current hotel and flight lists
+            hotels = filteredHotels;
+            flights = filteredFlights;
+            returnFlights = filteredReturnFlights;
+            showResults();
+        });
+        
+        function showResults() {
+            resultsContainer.style.display = 'block';
+            resultsContainer.innerHTML = `
+                
+                <div class="result-section" id="depart">
+            <h2>Departure Flights</h2>
+            <div class="card-container">
+    <button class="nav-btn" onclick="prevFlight()">❮</button>
+    <div class="flight-card">
+        ${showFlightData(flights[currentFlightIndex])}
+    </div>
+    <button class="nav-btn" onclick="nextFlight()">❯</button>
+</div>
+
+        </div>
+        <div class="result-section" id="hotel">
+            <h2>Hotels</h2>
+            <div class="card-container">
+                <button class="nav-btn" onclick="prevHotel()">❮</button>
+                ${getCard(hotels[currentHotelIndex])}
+                <button class="nav-btn" onclick="nextHotel()">❯</button>
+            </div>
+        </div>
+        <div class="result-section" id="return">
+            <h2>Return Flights</h2>
+            <div class="card-container">
+                <button class="nav-btn" onclick="prevReturnFlight()">❮</button>
+                <div class="flight-card">
+                ${showFlightData(returnFlights[currentReturnFlightIndex])}
+                </div>
+                <button class="nav-btn" onclick="nextReturnFlight()">❯</button>
+            </div>
+        </div>
+        <div class="total-section">
+            <h3>Total Price: ${(hotels[currentHotelIndex]?.price || 0) + 
+                                (flights[currentFlightIndex]?.price || 0) + 
+                                (returnFlights[currentReturnFlightIndex]?.price || 0)} VND</h3>
+            <button onclick="bookBundle()">Book Now</button>
+        </div>
+            `;
+        }
+        
+        function prevFlight() { currentFlightIndex = (currentFlightIndex - 1 + flights.length) % flights.length; showResults(); }
+function nextFlight() { currentFlightIndex = (currentFlightIndex + 1) % flights.length; showResults(); }
+function prevReturnFlight() { currentReturnFlightIndex = (currentReturnFlightIndex - 1 + returnFlights.length) % returnFlights.length; showResults(); }
+function nextReturnFlight() { currentReturnFlightIndex = (currentReturnFlightIndex + 1) % returnFlights.length; showResults(); }
+function prevHotel() { currentHotelIndex = (currentHotelIndex - 1 + hotels.length) % hotels.length; showResults(); }
+function nextHotel() { currentHotelIndex = (currentHotelIndex + 1) % hotels.length; showResults(); }
+
+        
+function getCard(hotel) {
+    return hotel ? `
+        <div class="card" data-id="${hotel.id}">
+            <div class="main-card">
+                <div class="main-card-img">
+                    <img src="${hotel.image}" alt="${hotel.name} image">
+                </div>
+                <div class="main-card-body">
+                    <h3 class="card_title">${hotel.name}</h3>
+                    <div class="card_location">${hotel.location}</div>
+                    <div class="rating_stars">${hotel.rating}⭐</div>
+                    <div class="price">${hotel.price} VND</div>
+                </div>
+            </div>
+            <div class="card-details">
+                <div class="card_description">${hotel.description}</div>
+            </div>
+        </div>`
+    : '<span>No hotels available</span>';
+}
+
+
+
+      
+        function showFlightData(flight) {
+    if (!flight) return '<p>No flights available</p>';
+
+    let card = document.createElement("div");
+    card.className = "card";
+
+    let imageSection = document.createElement("div");
+    imageSection.className = "imageSection";
+    let flightNum = document.createElement("div");
+    flightNum.className = "flightNum";
+    flightNum.innerText = flight.flight_number;
+    let airline = document.createElement("div");
+    airline.className = "airline";
+    airline.innerText = flight.airline;
+    imageSection.append(flightNum, airline);
+
+    let infoSection = document.createElement("div");
+    infoSection.className = "infoSection";
+
+    let upper = document.createElement("div");
+    upper.className = "infoUpper";
+    let dDiv = document.createElement("div");
+    dDiv.className = "cityDiv";
+    dDiv.innerText = `${flight.from_city} (${flight.from_code})`;
+    let aDiv = document.createElement("div");
+    aDiv.className = "cityDiv";
+    aDiv.innerText = `${flight.to_city} (${flight.to_code})`;
+
+    let midDiv = document.createElement("div");
+    midDiv.className = "midDiv";
+
+    let midTop = document.createElement("div");
+    midTop.className = "midTop";
+    midTop.innerText = `${flight.duration}`;
+    let midBottom = document.createElement("div");
+    midBottom.className = "midBottom";
+    midBottom.innerText = `${flight.departure} - ${flight.arrival}`;
+
+    midDiv.append(midTop, midBottom);
+    upper.append(dDiv, midDiv, aDiv);
+
+    let lower = document.createElement("div");
+lower.className = "infoLower";
+
+let priceDiv = document.createElement("div");
+priceDiv.className = "priceDiv";
+priceDiv.innerText = `Price: ${flight.price} VND`;
+
+lower.append(priceDiv); // Only appending priceDiv, removing seatsDiv
+
+    infoSection.append(upper, lower);
+
+    card.append(imageSection, infoSection);
+    return card.outerHTML; // Return as string
+}
+
+        
+        function bookBundle() {
+            localStorage.setItem('bundle', JSON.stringify({ hotel: hotels[currentHotelIndex], flight: flights[currentFlightIndex] }));
+            window.location.href = '/payment gateway/paymentgateway.html';
+        }
+    </script>
+</body>
+</html>

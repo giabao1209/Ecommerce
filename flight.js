@@ -29,7 +29,8 @@ let mainDiv = document.getElementById("data-list-wrapper")
 
 
 function fetchAndRenderFlights(){
-    fetch(`https://api-by-alisha-khan.onrender.com/flights`)
+    // fetch(`https://api-by-alisha-khan.onrender.com/flights`)
+    fetch('flights.json')
     .then(res =>{
         return res.json();
     })
