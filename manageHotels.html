@@ -178,58 +178,63 @@
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<To Add new Hotel>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    async function addHotel(obj){
+    async function addHotel(obj) {
         try {
-            let res = await fetch("https://api-by-alisha-khan.onrender.com/hotels/",{
-                method:"POST",
-                body:JSON.stringify(obj),
+            let response = await fetch(`hotels.json?timestamp=${new Date().getTime()}`);
+            let hotels = await response.json();
+
+            obj.id = (hotels.length + 1).toString();
+            hotels.push(obj);
+
+            await fetch('hotels.json', {
+                method: 'PUT',
+                body: JSON.stringify(hotels),
                 headers: {
-                    "Content-type": "application/json"
+                    'Content-Type': 'application/json'
                 }
-            })
-            let data = await res.json();
-            console.log(data);
-            FetchHotels();
+            });
+
+            console.log('Hotel added successfully:', obj);
+            FetchHotels(); // Refresh the displayed hotels
         } catch (error) {
-            console.log(error);
+            console.error('Error adding hotel:', error);
         }
     }
 
-    EHAddBtn.addEventListener("click",function(){
-        if( EHAddName.value             ==""||
-            EHAddLocation.value         ==""||
-            EHAddPrice.value            ==""||
-            EHAddDescription.value      ==""||
-            EHAddRating.value           ==""||
-            EHAddCategory.value         ==""||
-            EHAddImage.value            ==""){
-                console.log(123)
-                alert("Please fill all the details Properly :)")}
-        else{
-            console.log(321)
+    EHAddBtn.addEventListener("click", function () {
+        if (
+            EHAddName.value == "" ||
+            EHAddLocation.value == "" ||
+            EHAddPrice.value == "" ||
+            EHAddDescription.value == "" ||
+            EHAddRating.value == "" ||
+            EHAddCategory.value == "" ||
+            EHAddImage.value == ""
+        ) {
+            alert("Please fill all the details properly :)");
+        } else {
+            let obj = {
+                name: EHAddName.value,
+                location: EHAddLocation.value,
+                price: parseInt(EHAddPrice.value),
+                description: EHAddDescription.value,
+                rating: parseFloat(EHAddRating.value),
+                category: EHAddCategory.value,
+                image: EHAddImage.value
+            };
 
-        let obj={};
-        obj.name            = EHAddName.value;
-        obj.location        = EHAddLocation.value;
-        obj.price           = EHAddPrice.value;
-        obj.description     = EHAddDescription.value;
-        obj.rating          = EHAddRating.value;
-        obj.category        = EHAddCategory.value;
-        obj.image           = EHAddImage.value;
+            addHotel(obj);
 
-        addHotel(obj);
-        console.log(obj)
-
-        EHAddName.value = "";
-        EHAddLocation.value = "";
-        EHAddPrice.value = "";
-        EHAddDescription.value = "";
-        EHAddRating.value = "";
-        EHAddCategory.value = "";
-        EHAddImage.value = "";
-        EHAddBtn.value = "";
-            }
-    })
+            // Clear input fields
+            EHAddName.value = "";
+            EHAddLocation.value = "";
+            EHAddPrice.value = "";
+            EHAddDescription.value = "";
+            EHAddRating.value = "";
+            EHAddCategory.value = "";
+            EHAddImage.value = "";
+        }
+    });
 
     toggleSectionButton.addEventListener("click",function(){
         sidebarAddNewHotel.style.display = "flex";
@@ -243,7 +248,7 @@
         FetchHotels();
     async function FetchHotels() {
             try {
-                let res = await fetch("https://api-by-alisha-khan.onrender.com/hotels/")
+                let res = await fetch(`hotels.json?timestamp=${new Date().getTime()}`);
                 let data = await res.json();
                 allHotels=data;
                 console.log(allHotels)
@@ -586,4 +591,45 @@
             window.location.href = "login-signup.html"
         })
 
+    // Fetch data from hotels.json
+    fetch('hotels.json')
+        .then(response => response.json())
+        .then(data => {
+            console.log('Hotel data:', data);
+            // Use the fetched data to populate the hotel management interface
+            populateHotelTable(data);
+        })
+        .catch(error => console.error('Error fetching hotel data:', error));
+
+    function populateHotelTable(hotels) {
+        const tableBody = document.getElementById('hotelTableBody');
+        tableBody.innerHTML = ''; // Clear existing rows
+
+        hotels.forEach(hotel => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${hotel.id}</td>
+                <td>${hotel.name}</td>
+                <td>${hotel.location}</td>
+                <td>${hotel.price}</td>
+                <td>${hotel.rating}</td>
+                <td>${hotel.category}</td>
+                <td>
+                    <button onclick="editHotel(${hotel.id})">Edit</button>
+                    <button onclick="deleteHotel(${hotel.id})">Delete</button>
+                </td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+
+    function editHotel(id) {
+        console.log('Edit hotel with ID:', id);
+        // Add logic to edit hotel details
+    }
+
+    function deleteHotel(id) {
+        console.log('Delete hotel with ID:', id);
+        // Add logic to delete hotel
+    }
 </script>

@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background: rgb(178, 161, 255);
+    background: #ddefe6;
     font-family: 'monserrat', sans-serif;
     min-height: 100%;
     margin: 10%;
@@ -22,7 +22,7 @@ body {
     width: 768px;
     max-width: 100%;
     min-height: 480px;
-    background: #9077ff;
+    background: #2C3E50;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -49,7 +49,7 @@ body {
 }
 
 form {
-    background: #a391f2;
+    background: #A7BEAE;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,28 +92,40 @@ a {
 .button,
 button {
     color: #fff;
-    background: #6b32fa;
+    background: #A5D6A7;
     font-size: 12px;
     font-weight: bold;
     padding: 12px 55px;
     margin: 20px;
     border-radius: 20px;
-    border: 0px solid #3b1991;
+    border: 2px solid #3b1991;
     outline: none;
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
     cursor: pointer;
+   
 }
-
+.button:hover{
+    background: #2C3E50;
+}
 .button:active {
     transform: scale(0.90);
 }
 
 #signIn,
 #signUp {
-    background-color: #6b32fa;
+    background-color: #a9ca16;
     border: 2px solid #fff;
+    color: black;
+}
+#signIn:hover{
+    background-color: #534b76;
+    color: white;
+}
+#signUp:hover{
+    background-color: #534b76;
+    color: white;
 }
 
 .container.right-panel-active .sign-in {
@@ -160,11 +172,11 @@ button {
 .overlay {
     position: relative;
     color: #fff;
-    background: #ff416c;
+    background: #2C3E50;
     left: -100%;
     height: 100%;
     width: 200%;
-    background: linear-gradient(to right, #6b32fa, #3b1991);
+    background: linear-gradient(to right, #04b152, #1895a5);
     transform: translateX(0);
     transition: transform 0.6s ease-in-out;
 }
@@ -187,6 +199,7 @@ button {
     width: 50%;
     transform: translateX(0);
     transition: transform 0.6s ease-in-out;
+    background: #2C3E50;
 }
 
 .overlay-left {

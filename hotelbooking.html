@@ -337,7 +337,7 @@
                         </div> -->
                         <div id="tax">
                             <div>Base Price</div>
-                            <div>Rs <span id="base_price">1399</span></div>
+                            <div><span id="base_price">1399</span> VND</div>
                         </div>
                         <div id="tax">
                             <div>Nights</div>
@@ -345,7 +345,7 @@
                         </div>
                         <div id="tax">
                             <div>Hotel Taxes</div>
-                            <div>499</div>
+                            <div>100000</div>
                         </div>
                     </div>
                     <div id="total">
@@ -475,7 +475,7 @@
     
     hotelimage.setAttribute("src", hotelLS.image)
     baseprice.textContent=hotelLS.price
-    total_amount.textContent=`Rs ${(nightbill.textContent*baseprice.textContent)+499}`;
+    total_amount.textContent=`${(nightbill.textContent*baseprice.textContent)+100000} VND`;
     
 
 

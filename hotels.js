@@ -179,7 +179,7 @@ function getCard(name,loc,price,image,rating,id,des){
 
     let totprice = document.createElement("h3")
     totprice.className = "price"
-    totprice.innerText = `₹ ${price}  `
+    totprice.innerText = `${price} VND  `
 
     let btns = document.createElement("div")
     btns.className ="card_btns"
@@ -315,18 +315,15 @@ return card;
 
     //  ---------------------Filter Price------------------ --
 
-    let price1Checkbox = document.getElementById("500to2000");
-    let price2Checkbox = document.getElementById("2000to5000");
-    let price3Checkbox = document.getElementById("5000to10000");
-    let price4Checkbox = document.getElementById("10000to40000");
+    let price1Checkbox = document.getElementById("3000000to5000000");
+    let price2Checkbox = document.getElementById("5000000to7000000");
+    let price3Checkbox = document.getElementById("7000000to10000000");
+    let price4Checkbox = document.getElementById("10000000plus");
 
-    price1Checkbox.addEventListener("change",()=>{filterCheck()});
-    price2Checkbox.addEventListener("change",()=>{filterCheck()});
-    price3Checkbox.addEventListener("change",()=>{filterCheck()});
-    price4Checkbox.addEventListener("change",()=>{filterCheck()})
-
-
-
+    price1Checkbox.addEventListener("change", () => { filterCheck(); });
+    price2Checkbox.addEventListener("change", () => { filterCheck(); });
+    price3Checkbox.addEventListener("change", () => { filterCheck(); });
+    price4Checkbox.addEventListener("change", () => { filterCheck(); });
 
    function filterCheck(){
     console.log("filterAccomodation");
@@ -344,16 +341,16 @@ return card;
             return true;
             
           }
-          if (price1Checkbox.checked && (ele.price >=500 && ele.price <=2000) ||  price2Checkbox.checked && (ele.price >2000 && ele.price <=5000) ||  price3Checkbox.checked && (ele.price >5000 && ele.price <=10000) ||  price4Checkbox.checked && (ele.price >10000 && ele.price <=40000)) {
-            console.log(ele.id)
-            
+          if (
+            (price1Checkbox.checked && ele.price >= 3000000 && ele.price <= 5000000) ||
+            (price2Checkbox.checked && ele.price > 5000000 && ele.price <= 7000000) ||
+            (price3Checkbox.checked && ele.price > 7000000 && ele.price <= 10000000) ||
+            (price4Checkbox.checked && ele.price > 10000000)
+        ) {
+            console.log(ele.id);
             return true;
-          }
-        //   if (ResortsCheckbox.checked && ele.category === 'Resort') {
-        //     console.log(ele.id)
-        //     return true;
-        //   }
-          return false;
+        }
+        return false;
     });
 
     if (!villasCheckbox.checked && !HotelsCheckbox.checked && !HomestaysCheckbox.checked && !ResortsCheckbox.checked && !classicChecked.checked && !premiumChecked.checked && !luxuryChecked.checked &&

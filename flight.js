@@ -93,7 +93,7 @@ function showData(data) {
 
         let priceDiv = document.createElement("div");
         priceDiv.className="priceDiv";
-        priceDiv.innerText = `Price: ₹ ${element.price}`;
+        priceDiv.innerText = `Price:  ${element.price} VND`;
         let seatsDiv = document.createElement("div");
         seatsDiv.className = "seatsDiv";
         seatsDiv.innerText = `Seats: ${element.seats_available}`;
